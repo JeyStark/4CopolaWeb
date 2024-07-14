@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banda Nombre - Página Principal</title>
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Archivo de estilos CSS -->
+</head>
+<section class="banner">
+        <!-- Video de la banda en loop -->
+        <div class="video-wrapper">
+            <video autoplay loop muted>
+                <source src="{{ url_for('static', filename='media/bannerLoop.mp4') }}" type="video/mp4">
+                Tu navegador no soporta video HTML5.
+            </video>
+            <!-- Botón "WATCH VIDEO" -->
+            <button class="watch-video-btn">WATCH VIDEO</button>
+        </div>
+    </section>
+
+    <!-- Sección de Logo de la Banda -->
+    <section class="logo-section">
+        <img src="ruta-al-logo.png" alt="Logo de la Banda">
+    </section>
+
+    <!-- Sección de Trabajos Anteriores (Vídeos) -->
+    <section class="trabajos-antiguos">
+        <h2>Trabajos Anteriores</h2>
+        <div class="videos-container">
+            <!-- Aquí colocarías los vídeos de la banda, cada uno en su contenedor -->
+            <div class="video">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/video_id_1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/video_id_2" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <!-- Añade más vídeos según sea necesario -->
+        </div>
+    </section>
+
+    <!-- Sección de Historia de la Banda -->
+    <section class="historia-banda">
+        <h2>Historia de la Banda</h2>
+        <p>Aquí puedes escribir la historia y logros de la banda hasta la fecha de hoy.</p>
+    </section>
+
+    <!-- Sección de Próximos Conciertos -->
+    <section class="proximos-conciertos">
+        <h2>Próximos Conciertos</h2>
+        <div class="concierto">
+            <div class="fecha-lugar">
+                <p>Fecha: 15 de agosto de 2024</p>
+                <p>Lugar: Sala de Conciertos X, Murcia - España</p>
+            </div>
+            <div class="comprar-tickets">
+                <a href="enlace-a-la-web-de-compra-de-tickets" target="_blank" class="btn-tickets">Tickets</a>
+            </div>
+        </div>
+        <!-- Añade más conciertos según sea necesario -->
+    </section>
+
+    <!-- Script para manejar la apertura de video en overlay -->
+    <script src="scripts.js"></script>
+</body>
+</html>
