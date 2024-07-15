@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banda Nombre - Página Principal</title>
+    <title>4Copola</title>
     <link rel="stylesheet" href="/static/styles.css"> <!-- Archivo de estilos CSS -->
 </head>
-<section class="banner">
+
+<body>
+    <div class="background-video">
+        <video autoplay loop muted id="bg-video">
+            <source src="{{ url_for('static', filename='media/bodyVideoLoop.mp4') }}" type="video/mp4">
+            Tu navegador no soporta video HTML5.
+        </video>
+    </div>
+
+    <!-- Sección de Banner con Video y Botón -->
+    <section class="banner">
         <!-- Video de la banda en loop -->
         <div class="video-wrapper">
             <video autoplay loop muted>
@@ -20,28 +31,97 @@
 
     <!-- Sección de Logo de la Banda -->
     <section class="logo-section">
-        <img src="ruta-al-logo.png" alt="Logo de la Banda">
+        <img src="{{ url_for('static', filename='media/logo.png') }}" alt="Logo de la Banda">
     </section>
 
-    <!-- Sección de Trabajos Anteriores (Vídeos) -->
-    <section class="trabajos-antiguos">
-        <h2>Trabajos Anteriores</h2>
-        <div class="videos-container">
-            <!-- Aquí colocarías los vídeos de la banda, cada uno en su contenedor -->
-            <div class="video">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/video_id_1" frameborder="0" allowfullscreen></iframe>
+
+    <section class="singles-albums">
+        <h2>Singles and Albums</h2>
+        <div class="video-container">
+            <div class="column">
+                <div class="video">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/-wY93_o4CVE" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video">
+                    <iframe width="100%" height="315"
+                        src="https://www.youtube.com/embed/XTPHTeFF9iw?si=KnsS-SkURF9z9Y2g" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
             </div>
-            <div class="video">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/video_id_2" frameborder="0" allowfullscreen></iframe>
+            <div class="column">
+                <div class="video centered-video">
+                    <iframe width="100%" height="315"
+                        src="https://www.youtube.com/embed/pkO9fTbitTY?si=_SofZu0MFtv5aKcK" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
             </div>
-            <!-- Añade más vídeos según sea necesario -->
         </div>
     </section>
 
-    <!-- Sección de Historia de la Banda -->
     <section class="historia-banda">
-        <h2>Historia de la Banda</h2>
-        <p>Aquí puedes escribir la historia y logros de la banda hasta la fecha de hoy.</p>
+        <h2>Our Story</h2>
+        <div class="background-overlay">
+            <!-- Contenedor semitransparente -->
+            <div class="story-content">
+                <div class="text-section01">
+                    <p>4Copola is an alternative metal band unlike anything seen before in Spain, embracing songs from
+                        diverse genres without fear of experimentation.
+
+                        In mid-2018, they released their debut album "De lo esotérico a lo carnal" ("From the Esoteric
+                        to the Carnal").
+                    </p>
+                </div>
+                <div class="photos-section">
+                    <div class="photo">
+                        <a href="https://www.youtube.com/playlist?list=PL1VTUFAH9eXWSZnaMJ3xuBXGHpiqJ_9QD"
+                            target="_blank">
+                            <img src="\static\media\albumLink.png" alt="Imagen del disco 1">
+                        </a>
+                    </div>
+                    <div class="photo">
+                        <a href="https://www.youtube.com/playlist?list=PL1VTUFAH9eXWSZnaMJ3xuBXGHpiqJ_9QD"
+                            target="_blank">
+                            <img src="\static\media\albumLink2.png" alt="Imagen del disco 2">
+                        </a>
+                    </div>
+                </div>
+                <div class="text-section02">
+                    <p>This album enabled them to win awards such as the second edition of Tuenti Rock and appear on the
+                        lineup of Resurrection Fest.</p>
+                </div>
+                <div class="videos-photos-section">
+                    <div class="video">
+                        <video autoplay loop muted style="width: 100%; height: calc(100vw * 16/9); max-height: 100vh;">
+                            <source src="{{ url_for('static', filename='media/tuentiRock.mp4') }}" type="video/mp4">
+                            Tu navegador no soporta video HTML5.
+                        </video>
+                    </div>
+                    <div class="resurrection-img"
+                        style="width: 100%; max-width: 100vw; height: calc(100vw * 16/9); max-height: 100vh;">
+                        <img id="resurrection-img" src="/static/media/resurrection.png" alt="4Copola Resurrection Fest"
+                            style="width: 100%; height: 100%;">
+                    </div>
+                </div>
+
+                <!-- Modal para la imagen ampliada -->
+                <div id="myModal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01">
+                </div>
+
+                <div class="text-section">
+                    <p>Ahora puedes escribir otra sección de texto relacionado con la banda.</p>
+                </div>
+                <div class="listen-section">
+                    <p>Ahora puedes escuchar nuestro último trabajo:</p>
+                    <div class="centered-video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/video_id" frameborder="0"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Sección de Próximos Conciertos -->
@@ -60,6 +140,7 @@
     </section>
 
     <!-- Script para manejar la apertura de video en overlay -->
-    <script src="scripts.js"></script>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
+
 </html>

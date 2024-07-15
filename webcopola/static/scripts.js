@@ -1,20 +1,48 @@
-// scripts.js
-
 document.addEventListener("DOMContentLoaded", function() {
+    // Funcionalidad de abrir video
     const openVideoBtn = document.getElementById('openVideoBtn');
     const videoWrapper = document.querySelector('.video-wrapper');
     const overlay = document.querySelector('.overlay');
 
-    openVideoBtn.addEventListener('click', function() {
-        // Aquí puedes abrir el video de YouTube en un modal o overlay
-        // Por simplicidad, aquí mostramos un mensaje en la consola
-        console.log('Abrir video de YouTube');
-        // Aquí podrías usar una librería de modal como Bootstrap Modal o implementar tu propio overlay
-    });
+    if (openVideoBtn) {
+        openVideoBtn.addEventListener('click', function() {
+            console.log('Abrir video de YouTube');
+        });
+    }
 
-    // Cerrar el modal cuando se hace clic fuera del video
-    overlay.addEventListener('click', function() {
-        // Cerrar el modal o overlay aquí
-        console.log('Cerrar video de YouTube');
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            console.log('Cerrar video de YouTube');
+        });
+    }
+
+    // Funcionalidad del modal de imagen ampliada
+    const modal = document.getElementById('myModal');
+    const modalImg = document.getElementById("img01");
+
+    // Seleccionar la imagen específica con id resurrection-img
+    const targetImg = document.getElementById('resurrection-img');
+
+    if (targetImg) {
+        targetImg.addEventListener('click', function() {
+            modal.style.display = "block"; // Mostrar el modal
+            modalImg.src = "/static/media/resutotal.jpg"; // Establecer la imagen ampliada
+        });
+    }
+
+    // Obtener la referencia al botón de cerrar (X)
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+    }
+
+    // Cerrar el modal al hacer clic fuera de la imagen ampliada
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
     });
 });
